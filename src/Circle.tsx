@@ -7,7 +7,7 @@ interface CircleProps {
 const Circle = ({ size, position, randomColor }: CircleProps) => {
   return (
     <div
-      className="transition duration-200 ease-in-out transform"
+      className={`transition duration-200 ease-in-out transform hover:scale-110 `}
       style={{
         width: `${size}px`,
         height: `${size}px`,

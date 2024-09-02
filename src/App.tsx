@@ -66,9 +66,10 @@ const App = () => {
 
       if (collidingCircle) {
         if (newCircle.size > collidingCircle.size) {
-          return prevCircles.map((circle) =>
-            circle.id === collidingCircle.id ? newCircle : circle
-          );
+          return [
+            ...prevCircles.filter((c) => c.id !== collidingCircle.id),
+            newCircle,
+          ];
         } else {
           return prevCircles;
         }
@@ -86,12 +87,7 @@ const App = () => {
 
   return (
     <div
-      style={{
-        width: "100vw",
-        height: "100vh",
-        position: "relative",
-        overflow: "hidden",
-      }}
+      className="bg-gradient-to-br from-blue-500/50 to-blue-300/50 w-screen h-screen relative overflow-hidden"
       onClick={handleAddCircle}
     >
       {circles.map((circle) => (
